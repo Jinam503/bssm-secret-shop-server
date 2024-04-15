@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/bssm_secret_shop
+    url: jdbc:mariadb://svc.sel5.cloudtype.app:32055/bssm_secret_shop
     username: root
     password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
