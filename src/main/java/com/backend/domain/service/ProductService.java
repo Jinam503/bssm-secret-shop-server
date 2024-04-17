@@ -26,4 +26,8 @@ public class ProductService {
     public String getProductNameById(Long productId) {
         return productRepository.findById(productId).get().getName();
     }
+
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
 }

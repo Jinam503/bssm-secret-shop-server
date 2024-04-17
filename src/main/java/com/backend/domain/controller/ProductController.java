@@ -1,5 +1,6 @@
 package com.backend.domain.controller;
 
+import com.backend.domain.model.Orders;
 import com.backend.domain.model.Product;
 import com.backend.domain.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +23,10 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+    @PostMapping("/add_product")
+    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+        Product newProduct = productService.addProduct(product);
+        return ResponseEntity.ok(newProduct);
+    }
 
 }
