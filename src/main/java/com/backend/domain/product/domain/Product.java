@@ -1,4 +1,4 @@
-package com.backend.domain.model;
+package com.backend.domain.product.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,6 @@ import lombok.*;
 @Entity
 @Getter
 @Builder
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
@@ -32,4 +31,9 @@ public class Product {
 
     @Column(nullable = false)
     private int stock;
+
+
+    public void updateStock(Integer stock) {
+        this.stock = stock;
+    }
 }

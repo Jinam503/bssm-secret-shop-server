@@ -1,13 +1,12 @@
-package com.backend.domain.model;
+package com.backend.domain.orders.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,7 +30,9 @@ public class Orders{
     @Column(nullable = false)
     private boolean accepted;
 
-    @Column(nullable = false)
-    private String orderedProducts;
+    private LocalDateTime orderDate;
 
+    public void accept() {
+        accepted = true;
+    }
 }

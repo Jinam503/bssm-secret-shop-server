@@ -1,6 +1,6 @@
-package com.backend.domain.repository;
+package com.backend.domain.product.domain.repository;
 
-import com.backend.domain.model.Product;
+import com.backend.domain.product.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
