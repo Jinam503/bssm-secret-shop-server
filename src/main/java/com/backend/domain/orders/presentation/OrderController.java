@@ -23,6 +23,12 @@ public class OrderController {
         return ResponseEntity.ok(orders);
     }
 
+    @GetMapping("/10_orders/{page_index}")
+    public ResponseEntity<List<OrderResponseDto>> get10Orders(@PathVariable int page_index){
+        List<OrderResponseDto> orders = orderService.get10OrdersFromIndex(page_index);
+        return ResponseEntity.ok(orders);
+    }
+
     @PostMapping("/add_order")
     public void addOrder(@RequestBody OrderRequestDto order) {
         System.out.println(order);

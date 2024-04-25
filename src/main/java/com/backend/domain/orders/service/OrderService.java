@@ -9,6 +9,7 @@ import com.backend.domain.orders.domain.Orders;
 import com.backend.domain.product.service.ProductService;
 import com.backend.domain.orders.domain.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -31,6 +32,13 @@ public class OrderService {
 
     private List<OrderProductItemDto> getOrderProductItemDtoList(Orders order) {
         return orderProductService.getOrderProductItemDtoList(order);
+    }
+
+    public List<OrderResponseDto> get10OrdersFromIndex(int page_index){
+        List<Orders> orders = orderRepository.findAllByOrderByIdDesc(PageRequest.of(page_index,10));
+        return orders.stream()
+                .map(order -> new OrderResponseDto(order, getOrderProductItemDtoList(order)))
+                .toList();
     }
 
     public void addOrder(OrderRequestDto orderRequestDto) {
