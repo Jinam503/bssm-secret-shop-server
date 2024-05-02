@@ -13,7 +13,7 @@ public class AdminController {
     private String key;
 
     @GetMapping
-        public Boolean checkAdmin(@RequestParam("key") String requestKey) {
+        public Boolean checkAdmin(@RequestParam(value = "key", required = false) String requestKey) {
         System.out.println(key);
         return requestKey != null && requestKey.equals(key);
     }
