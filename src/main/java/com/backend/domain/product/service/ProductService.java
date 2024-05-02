@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -17,8 +18,15 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public List<ProductResponseDto> getAllProducts() {
+        return productRepository.findAll().stream()// 조건에 맞는 제품만 필터링
+                .map(ProductResponseDto::new)
+                .toList();
+    }
+    public List<ProductResponseDto> getAllProductsExceptLimited() {
         return productRepository.findAll().stream()
-                .map(ProductResponseDto::new).toList();
+                .filter(product -> !product.isLimited() || product.getStock() > 0) // 조건에 맞는 제품만 필터링
+                .map(ProductResponseDto::new)
+                .toList();
     }
 
     public void modifyProductAmountById(ProductModifyAmountRequestDto requestDto) {

@@ -32,6 +32,8 @@ public class Product {
     @Column(nullable = false)
     private int stock;
 
+    @Column(nullable = false)
+    private boolean limited;
 
     public void updateStock(Integer stock) {
         this.stock = stock;

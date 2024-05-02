@@ -24,6 +24,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
+    @GetMapping("/products_except_limited")
+    public ResponseEntity<List<ProductResponseDto>> getAllProductsExceptLimited() {
+        return ResponseEntity.ok(productService.getAllProductsExceptLimited());
+    }
+
     @PostMapping("/add_product")
     public void addProduct(@RequestBody ProductRequestDto product) {
         productService.addProduct(product);

@@ -8,7 +8,8 @@ public record ProductRequestDto(
         String description,
         String imageUrl,
         int price,
-        int stock
+        int stock,
+        boolean limited
 ) {
     public Product toEntity() {
         return Product.builder()
@@ -18,6 +19,7 @@ public record ProductRequestDto(
                 .imageUrl(imageUrl)
                 .price(price)
                 .stock(stock)
+                .limited(limited)
                 .build();
     }
 }

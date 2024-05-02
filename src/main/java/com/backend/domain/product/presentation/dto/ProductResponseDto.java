@@ -9,7 +9,8 @@ public record ProductResponseDto(
         String description,
         String imageUrl,
         int price,
-        int stock
+        int stock,
+        boolean limited
 ) {
     public ProductResponseDto(Product product) {
         this(
@@ -19,7 +20,8 @@ public record ProductResponseDto(
                 product.getDescription(),
                 product.getImageUrl(),
                 product.getPrice(),
-                product.getStock()
+                product.getStock(),
+                product.isLimited()
         );
     }
 }
