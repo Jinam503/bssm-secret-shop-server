@@ -1,11 +1,8 @@
 package com.backend.domain.admin.presentation;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,8 +13,8 @@ public class AdminController {
     private String key;
 
     @GetMapping
-        public Boolean checkAdmin(HttpServletRequest request) {
+        public Boolean checkAdmin(@RequestParam("key") String requestKey) {
         System.out.println(key);
-        return request.getHeader("Authorization").equals(key);
+        return requestKey != null && requestKey.equals(key);
     }
 }
