@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://svc.sel5.cloudtype.app:32457/bssm_secret_shop
+    url: jdbc:mariadb://svc.sel5.cloudtype.app:32704/bssm_secret_shop
     username: root
     password: 1234
     driver-class-name: org.mariadb.jdbc.Driver
